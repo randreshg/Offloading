@@ -1,0 +1,15 @@
+%18 = call i32 @__tgt_target_mapper(
+    %struct.ident_t* @2,                                 //RTLoc
+    i64 -1,                                              //DeviceID
+    i8* @.__omp_offloading_10301_4379e_foo_l8.region_id, //OutlinedFnID -> ID of host version of the code to be offloaded.
+    i32 1,                                               //PointerNum
+    i8** %16,                                            //InputInfo.BasePointersArray.getPointer()
+    i8** %17,                                            //InputInfo.PointersArray.getPointer()
+    i64* getelementptr inbounds ([1 x i64],              //InputInfo.SizesArray.getPointer(),
+    [1 x i64]* @.offload_sizes, i32 0, i32 0),           //MapTypesArray
+    i64* getelementptr inbounds ([1 x i64],              //MapNamesArray
+    [1 x i64]* @.offload_maptypes, i32 0, i32 0),        //InputInfo.MappersArray.getPointer()
+    i8** getelementptr inbounds ([1 x i8*],              //CGF.Builder.getInt32(0) -> Add int32_t depNum = 0
+    [1 x i8*]* @.offload_mapnames, i32 0, i32 0),        //llvm::ConstantPointerNull::get(CGM.VoidPtrTy) -> void *depList = nullptr
+    i8** null),                                          //CGF.Builder.getInt32(0) -> int32_t noAliasDepNum = 0
+    !dbg !28                                             //llvm::ConstantPointerNull::get(CGM.VoidPtrTy) -> void *noAliasDepList = nullptr.

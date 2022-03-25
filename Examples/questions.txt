@@ -1,0 +1,15 @@
+1. What about cases where the code finish execution but the device offloading is not ready yet?
+Should we make sure there is an implicit omp task wait before the program finishes?
+
+Example code
+int main () {
+    int a=100;
+    #pragma omp target nowait
+    {
+        a = a + 1;
+        printf("Result1 %d \n", a);
+    }
+    printf("-------------------------------------- Result %d \n", a);
+    //#pragma omp taskwait
+    return 0;
+}

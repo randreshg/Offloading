@@ -1,2 +1,0 @@
-1. What about cases where the code finish execution but the device offloading is not ready yet?
-Should we make sure there is an implicit omp task wait before the program finishes?
