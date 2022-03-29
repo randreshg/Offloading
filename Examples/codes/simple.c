@@ -25,31 +25,31 @@ int main () {
 
 
     #pragma omp enter data map(to:a) //1
-    #pragma omp target //nowait //2
-    {
-        #pragma omp teams
+        #pragma omp target //nowait //2
         {
-        a++;
-        }
-    } //1
-    #pragma omp target //nowait //2
-    {
-        #pragma omp teams
+            #pragma omp teams
+            {
+            a++;
+            }
+        } //1
+        #pragma omp target //nowait //2
         {
-        a++;
-        }
-    } //1
-    #pragma omp target //nowait //2
-    {
-        #pragma omp teams
+            #pragma omp teams
+            {
+            a++;
+            }
+        } //1
+        #pragma omp target //nowait //2
         {
-        a++;
-        a++;
-        a++;
-        a++;
-        a++;
-        }
-    }//1
+            #pragma omp teams
+            {
+            a++;
+            a++;
+            a++;
+            a++;
+            a++;
+            }
+        }//1
     #pragma omp exit data map(from:a) //1
     printf("hola"); //0
     fflush(stdout);

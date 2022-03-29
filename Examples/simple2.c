@@ -6,22 +6,28 @@
 
 int main () {
     int a=100;
+
+    printf("\n************************** PRAGMA 1************************** \n");
     #pragma omp target nowait
     {
         a = a + 1;
         printf("Result1 %d \n", a);
     }
-    // printf("-------------------------------------- Result %d \n", a);
-    // #pragma omp target
-    // {
-    //     a = a + 1;
-    //     printf("Result2 %d \n", a);
-    // }
-    printf("-------------------------------------- Result %d \n", a);
+
+    printf("\n************************** PRAGMA 2 ************************** \n");
+    printf("Result %d \n", a);
+    #pragma omp target nowait
+    {
+        a = a + 1;
+        printf("Result2 %d \n", a);
+    }
+
+    printf("\n************************** SEQUENTIAL ************************** \n");
+    printf("Result %d \n", a);
     for(int i=0; i<100; i++) {
         a++;
     }
-    printf("-------------------------------------- Result %d \n", a);
+    printf("Result %d \n", a);
     #pragma omp taskwait
     return 0;
 }

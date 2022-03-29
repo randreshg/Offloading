@@ -6,18 +6,20 @@
 
 int main () {
     int a=100;
+    printf("************************** PRAGMA 1 ************************** \n");
     #pragma omp target map(tofrom:a)
     {
         a = a + 1;
         printf("Result1 %d \n", a);
     }
+    printf("Result %d \n", a);
 
-    printf("-------------------------------------- Result %d \n", a);
+    printf("************************** PRAGMA 2 ************************** \n");
     #pragma omp target map(tofrom:a)
     {
         a = a + 10;
         printf("Result2 %d \n", a);
     }
-    printf("-------------------------------------- Result %d \n", a);
+    printf("Result %d \n", a);
     return 0;
 }
