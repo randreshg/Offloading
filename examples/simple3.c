@@ -11,6 +11,7 @@ int main () {
    #pragma omp target data map(tofrom: a)
    {
       printf("\n************************** PRAGMA 1************************** \n");
+      printf("Result 1 - %d \n", a);
       #pragma omp target
       {
          //a = a + 1;
@@ -18,31 +19,32 @@ int main () {
       }
       
       printf("\n************************** PRAGMA 2 ************************** \n");
-      printf("Result %d \n", a);
-      #pragma omp target map(tofrom: a)
+      printf("Result 2 - %d \n", a);
+      #pragma omp target
       {
          a = a + 1;
          printf("Result2 %d \n", a);
       }
 
-      // printf("\n************************** PRAGMA 3 ************************** \n");
-      // printf("Result %d \n", a);
-      // #pragma omp target
-      // {
-      //    a = a + 1;
-      //    printf("Result2 %d \n", a);
-      // }
-      
+      printf("\n************************** PRAGMA 3 ************************** \n");
+      printf("Result 3 - %d \n", a);
+      #pragma omp target map(tofrom: a)
+      {
+         a = a + 1;
+         printf("Result3 %d \n", a);
+      }
+      #pragma omp target update from(a)
       printf("\n************************** SEQUENTIAL ************************** \n");
-      printf("Result %d \n", a);
+      printf("Result sequential %d \n", a);
       for(int i=0; i<100; i++) {
          a++;
       }
       printf("Result %d \n", a);
-      #pragma omp taskwait
+      printf("\n************************** TASK WAIT ************************** \n");
+      //#pragma omp taskwait
    }
    printf("\n************************** RESULT ************************** \n");
-   printf("Result %d \n", a);
+   printf("Result final %d \n", a);
 
    return 0;
 }
