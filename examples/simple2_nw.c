@@ -21,6 +21,9 @@ int main () {
         a = a + 1;
         printf("Result2 %d \n", a);
     }
+    
+    printf("\n************************** TASK WAIT ************************** \n");
+    #pragma omp taskwait
 
     printf("\n************************** SEQUENTIAL ************************** \n");
     printf("Result %d \n", a);
@@ -28,8 +31,7 @@ int main () {
         a++;
     }
     printf("Result %d \n", a);
-    printf("\n************************** TASK WAIT ************************** \n");
-    #pragma omp taskwait
+    
     printf("\n************************** END ************************** \n");
     return 0;
 }
