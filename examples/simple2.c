@@ -18,17 +18,18 @@ int main () {
     printf("Result %d \n", a);
     #pragma omp target
     {
-        a = a + 1;
+        for(int i = 0; i<1000000; i++)
+            a = a + 1;
         printf("Result2 %d \n", a);
     }
-    #pragma omp taskwait
-    printf("\n************************** SEQUENTIAL ************************** \n");
-    printf("Result %d \n", a);
-    for(int i=0; i<100; i++) {
-        a++;
-    }
-    printf("Result %d \n", a);
-    printf("\n************************** TASK WAIT ************************** \n");
+
+    // printf("\n************************** SEQUENTIAL ************************** \n");
+    // printf("Result %d \n", a);
+    // for(int i=0; i<100; i++) {
+    //     a++;
+    // }
+    // printf("Result %d \n", a);
+    
     
     printf("\n************************** END ************************** \n");
     return 0;
