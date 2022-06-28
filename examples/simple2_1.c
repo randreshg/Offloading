@@ -31,7 +31,7 @@ int main () {
     }
 
     printf("\n************************** SEQUENTIAL ************************** \n");
-    printf("Result Seq %d \n", a)
+    printf("Result Seq %d \n", a);
 
     for(int i=0; i<100; i++) {
         a++;

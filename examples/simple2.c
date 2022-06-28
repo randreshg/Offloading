@@ -5,7 +5,7 @@
 #include <omp.h>
 
 int main () {
-    int a=100;
+    int a=1;
 
     printf("\n************************** PRAGMA 1************************** \n");
     #pragma omp target
@@ -18,17 +18,16 @@ int main () {
     printf("Result %d \n", a);
     #pragma omp target
     {
-        for(int i = 0; i<1000000; i++)
-            a = a + 1;
+        a = a + 1;
         printf("Result2 %d \n", a);
     }
 
-    // printf("\n************************** SEQUENTIAL ************************** \n");
-    // printf("Result %d \n", a);
-    // for(int i=0; i<100; i++) {
-    //     a++;
-    // }
-    // printf("Result %d \n", a);
+    printf("\n************************** SEQUENTIAL ************************** \n");
+    printf("Result %d \n", a);
+    for(int i=0; i<100; i++) {
+        a++;
+    }
+    printf("Result %d \n", a);
     
     
     printf("\n************************** END ************************** \n");
