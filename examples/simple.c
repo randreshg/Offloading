@@ -1,4 +1,4 @@
-// $MYCLANG -fopenmp -fopenmp-targets=nvptx64 simple.c -o simple
+// $clang -fopenmp -fopenmp-targets=nvptx64 simple.c -o simple
 // LIBOMPTARGET_DEBUG=1 ./simple
 
 #include <stdio.h>
