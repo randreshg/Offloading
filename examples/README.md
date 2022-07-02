@@ -5,7 +5,9 @@
 export MYCLANG='/home/randreshg/soft/llvm-offloading/bin/clang'
 export MYCLANG='/home/randreshg/soft/llvm-offloading-test/bin/clang'
 $MYCLANG -fopenmp -fopenmp-targets=nvptx64 code.c -o code
-$MYCLANG -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_80 simple.c -o simple
+$MYCLANG -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_80 
+simple.c -o simple
+clang -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70 simple1.c -o simple1
 LIBOMPTARGET_DEBUG=1 ./code //To get debug information
 ```
 ### To get device info

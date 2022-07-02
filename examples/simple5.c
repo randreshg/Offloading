@@ -8,7 +8,7 @@ int main () {
    #pragma omp parallel
    {
       int a = omp_get_thread_num();
-      #pragma omp target
+      #pragma omp target device(0)
       {
          printf("Result1 %d \n", a);
       }
