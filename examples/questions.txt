@@ -1,9 +1,0 @@
-
-- When do we have to synchronize if there is no mem copy?
-- Do we need to call processDataAfter only when we want to synchronize?
-    -processDataAfter free device pointers and before doing that synchronizes the device.
-    -We need to synchronize when the DynRefCount=0, however, because processDataAfter is not called the
-     DynRefCount of the pragma instructions inside a pragma data map is never decremented...
-    -So we can call the processDataAfter only to decrement the DynRefCount, and only when it is 0, we
-     synchronize and deallocate variables, for the other cases, the information required to deallocate device
-     pointers and synchronize has to be saved somehow
