@@ -1,3 +1,4 @@
+// clang -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_80 simple2_1.c -o simple2_1
 // $MYCLANG -fopenmp -fopenmp-targets=nvptx64 simple2_1.c -o simple2_1
 // LIBOMPTARGET_DEBUG=1 ./simple2_1
 

@@ -64,4 +64,7 @@ sudo ninja
 
 sudo ninja install
 
+cmake -Bbuild -H. -DMODEL=omp -DCMAKE_CXX_COMPILER=clang++ -DOFFLOAD=ON -DOFFLOAD_FLAGS='-fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_80'
+cmake --build build
+./build/omp-stream
 ```
